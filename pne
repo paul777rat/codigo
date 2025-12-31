@@ -1,0 +1,73 @@
+public class ManejoDatosJFrame extends javax.swing.JFrame {
+
+    // VARIABLES
+    double miguel, miguel1, miguel2;
+    String miguel3;
+    double miguel4 = 12000;
+
+    public ManejoDatosJFrame() {
+        initComponents();
+    }
+
+
+
+
+
+
+
+
+private javax.swing.JButton btnCalcular;
+
+
+
+
+
+
+Botón Calcular
+private void btnCalcularActionPerformed(java.awt.event.ActionEvent evt) {
+    miguel = Double.parseDouble(txt1.getText());
+    miguel1 = Double.parseDouble(txt2.getText());
+    miguel2 = Double.parseDouble(txt3.getText());
+
+    double promedio = (miguel + miguel1 + miguel2) / 3;
+    double max = Math.max(miguel, Math.max(miguel1, miguel2));
+    double min = Math.min(miguel, Math.min(miguel1, miguel2));
+
+    JOptionPane.showMessageDialog(this,
+        "Promedio: " + promedio +
+        "\nMáximo: " + max +
+        "\nMínimo: " + min);
+}
+
+🔘 Botón Contar
+private void btnContarActionPerformed(java.awt.event.ActionEvent evt) {
+    String[] lista = {"java", "miguel", "codigo", "java", "java"};
+    miguel3 = txtPalabra.getText();
+    int contador = 0;
+
+    for (String p : lista) {
+        if (p.equalsIgnoreCase(miguel3)) {
+            contador++;
+        }
+    }
+
+    JOptionPane.showMessageDialog(this,
+        "La palabra aparece " + contador + " veces");
+}
+
+🔘 Botón Buscar
+private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
+    String producto = "Laptop";
+
+    if (txtProducto.getText().equalsIgnoreCase(producto)) {
+        String nuevo = JOptionPane.showInputDialog(
+            "Precio actual: " + miguel4 + "\nNuevo precio:");
+        miguel4 = Double.parseDouble(nuevo);
+
+        JOptionPane.showMessageDialog(this,
+            "Nuevo precio: " + miguel4);
+    } else {
+        JOptionPane.showMessageDialog(this,
+            "Producto no encontrado");
+    }
+}
