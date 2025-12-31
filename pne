@@ -88,3 +88,28 @@ private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
     public ManejoDatoaJFrame() {
         initComponents();
     }
+
+
+
+
+
+
+
+
+
+private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
+
+    miguel  = Double.parseDouble(jTextField1.getText());
+    miguel1 = Double.parseDouble(jTextField2.getText());
+    miguel2 = Double.parseDouble(jTextField3.getText());
+
+    double promedio = (miguel + miguel1 + miguel2) / 3;
+    double max = Math.max(miguel, Math.max(miguel1, miguel2));
+    double min = Math.min(miguel, Math.min(miguel1, miguel2));
+
+    JOptionPane.showMessageDialog(this,
+        "Promedio: " + promedio +
+        "\nMáximo: " + max +
+        "\nMínimo: " + min);
+}
+
