@@ -1,0 +1,115 @@
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class ManejoDatosJFrame extends JFrame {
+
+    // Variables tipo miguel
+    double miguel, miguel1, miguel2;
+    String miguel3;
+    double miguel4 = 12000;
+
+    public ManejoDatosJFrame() {
+
+        setTitle("Manejo de varios tipos de datos");
+        setSize(900, 600);
+        setLocationRelativeTo(null);
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
+
+        setLayout(new GridLayout(3, 1));
+
+        // ---------------- PANEL 1 ----------------
+        JPanel panel1 = new JPanel();
+        panel1.setBorder(BorderFactory.createTitledBorder("1. Promedio, Máx y Mín"));
+
+        JTextField txt1 = new JTextField(5);
+        JTextField txt2 = new JTextField(5);
+        JTextField txt3 = new JTextField(5);
+        JButton btnCalcular = new JButton("Calcular");
+
+        panel1.add(new JLabel("Calif 1:"));
+        panel1.add(txt1);
+        panel1.add(new JLabel("Calif 2:"));
+        panel1.add(txt2);
+        panel1.add(new JLabel("Calif 3:"));
+        panel1.add(txt3);
+        panel1.add(btnCalcular);
+
+        // ---------------- PANEL 2 ----------------
+        JPanel panel2 = new JPanel();
+        panel2.setBorder(BorderFactory.createTitledBorder("2. Contar palabra"));
+
+        JTextField txtPalabra = new JTextField(10);
+        JButton btnContar = new JButton("Contar");
+
+        panel2.add(new JLabel("Palabra:"));
+        panel2.add(txtPalabra);
+        panel2.add(btnContar);
+
+        // ---------------- PANEL 3 ----------------
+        JPanel panel3 = new JPanel();
+        panel3.setBorder(BorderFactory.createTitledBorder("3. Buscar producto"));
+
+        JTextField txtProducto = new JTextField(10);
+        JButton btnBuscar = new JButton("Buscar");
+
+        panel3.add(new JLabel("Producto:"));
+        panel3.add(txtProducto);
+        panel3.add(btnBuscar);
+
+        add(panel1);
+        add(panel2);
+        add(panel3);
+
+        // ---------------- ACCIONES ----------------
+        btnCalcular.addActionListener(e -> {
+            miguel = Double.parseDouble(txt1.getText());
+            miguel1 = Double.parseDouble(txt2.getText());
+            miguel2 = Double.parseDouble(txt3.getText());
+
+            double promedio = (miguel + miguel1 + miguel2) / 3;
+            double max = Math.max(miguel, Math.max(miguel1, miguel2));
+            double min = Math.min(miguel, Math.min(miguel1, miguel2));
+
+            JOptionPane.showMessageDialog(this,
+                    "Promedio: " + promedio +
+                    "\nMáximo: " + max +
+                    "\nMínimo: " + min);
+        });
+
+        btnContar.addActionListener(e -> {
+            String[] lista = {"java", "miguel", "codigo", "java", "java"};
+            miguel3 = txtPalabra.getText();
+            int contador = 0;
+
+            for (String p : lista) {
+                if (p.equalsIgnoreCase(miguel3)) {
+                    contador++;
+                }
+            }
+
+            JOptionPane.showMessageDialog(this,
+                    "La palabra aparece " + contador + " veces");
+        });
+
+        btnBuscar.addActionListener(e -> {
+            String producto = "Laptop";
+
+            if (txtProducto.getText().equalsIgnoreCase(producto)) {
+                String nuevo = JOptionPane.showInputDialog(
+                        "Precio actual: " + miguel4 + "\nNuevo precio:");
+                miguel4 = Double.parseDouble(nuevo);
+
+                JOptionPane.showMessageDialog(this,
+                        "Nuevo precio: " + miguel4);
+            } else {
+                JOptionPane.showMessageDialog(this,
+                        "Producto no encontrado");
+            }
+        });
+    }
+
+    public static void main(String[] args) {
+        new ManejoDatosJFrame().setVisible(true);
+    }
+}
