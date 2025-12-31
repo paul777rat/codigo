@@ -71,3 +71,20 @@ private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {
             "Producto no encontrado");
     }
 }
+
+
+
+
+
+
+
+
+   double miguel;
+    double miguel1;
+    double miguel2;
+    String miguel3;
+    double miguel4 = 12000;
+
+    public ManejoDatoaJFrame() {
+        initComponents();
+    }
