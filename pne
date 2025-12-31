@@ -113,3 +113,51 @@ private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {
         "\nMínimo: " + min);
 }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ===== BUSCAR PRODUCTO Y ACTUALIZAR PRECIO (boton6 - mouseClicked) =====
+String producto = campo7.getText().toLowerCase();
+double nuevoPrecio = Double.parseDouble(campo9.getText());
+
+if (producto.equals("laptop")) {
+    campo7.setText("Laptop - Precio actualizado: $" + nuevoPrecio);
+}
+else if (producto.equals("mouse")) {
+    campo7.setText("Mouse - Precio actualizado: $" + nuevoPrecio);
+}
+else if (producto.equals("teclado")) {
+    campo7.setText("Teclado - Precio actualizado: $" + nuevoPrecio);
+}
+else {
+    campo7.setText("Producto no encontrado");
+}
+
